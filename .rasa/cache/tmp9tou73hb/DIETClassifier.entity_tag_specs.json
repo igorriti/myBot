@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-dia",
+      "2": "I-dia",
+      "3": "L-dia",
+      "4": "U-dia",
+      "5": "B-lenguaje",
+      "6": "I-lenguaje",
+      "7": "L-lenguaje",
+      "8": "U-lenguaje",
+      "9": "B-materia",
+      "10": "I-materia",
+      "11": "L-materia",
+      "12": "U-materia",
+      "13": "B-nombre",
+      "14": "I-nombre",
+      "15": "L-nombre",
+      "16": "U-nombre",
+      "17": "B-nombre_grupo",
+      "18": "I-nombre_grupo",
+      "19": "L-nombre_grupo",
+      "20": "U-nombre_grupo",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-dia": 1,
+      "I-dia": 2,
+      "L-dia": 3,
+      "U-dia": 4,
+      "B-lenguaje": 5,
+      "I-lenguaje": 6,
+      "L-lenguaje": 7,
+      "U-lenguaje": 8,
+      "B-materia": 9,
+      "I-materia": 10,
+      "L-materia": 11,
+      "U-materia": 12,
+      "B-nombre": 13,
+      "I-nombre": 14,
+      "L-nombre": 15,
+      "U-nombre": 16,
+      "B-nombre_grupo": 17,
+      "I-nombre_grupo": 18,
+      "L-nombre_grupo": 19,
+      "U-nombre_grupo": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

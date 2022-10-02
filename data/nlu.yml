@@ -1,0 +1,310 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hola
+    - Hola!
+    - Buenas
+    - Hola que tal
+    - Buen dia
+    - Buenas tardes
+    - Buenas noches
+    - eu
+    - ey
+    - que onda
+
+- intent: goodbye
+  examples: |
+    - Adios
+    - Chau
+    - Nos vemos
+    - Hasta luego
+    - Hasta pronto
+    - Hasta la proxima
+    - me tengo que ir
+
+- intent: affirm
+  examples: |
+    - Si
+    - Claro
+    - Correcto
+    - Asi es
+    - Afirmativo
+
+- intent: deny
+  examples: |
+    - no
+    - mmm no
+    - no creo
+    - no estoy seguro
+    - no estoy de acuerdo
+    
+
+- intent: mood_great
+  examples: |
+    - perfecto
+    - increible
+    - genial
+    - maravilloso
+    - me siento muy bien
+    - me siento 10 puntos
+    - muy contento
+    - muy bien
+    - bien, gracias por preguntar
+
+- intent: mood_unhappy
+  examples: |
+    - muy mal
+    - mi dia fue una mierda
+    - muy mal, no me siento bien
+    - no me siento bien
+    - estoy triste y de mal humor
+    - estoy de mal humor
+    - infeliz
+    - no muy bien
+    - sad
+
+- intent: bot_challenge
+  examples: |
+    - Sos un bot?
+    - Eres un bot?
+    - Como se que no sos un bot?
+    - Sos nacho o un bot?
+
+
+- intent: saber_edad
+  examples: |
+    - ¿Cuántos años tienes?
+    - Cuantos años tenes?
+    - Cual es tu edad?
+    - Que edad tenes?
+
+- intent: saber_nombre
+  examples: |
+    - ¿Cómo te llamas?
+    - Como te llamas?
+    - Cual es tu nombre?
+    - Que nombre tenes?
+
+- intent: saber_ciudad_de_origen
+  examples: |
+    - ¿De dónde eres?
+    - De donde eres?
+    - Cual es tu ciudad de origen?
+    - De donde sos?
+
+- intent: saber_carrera
+  examples: |
+    - ¿Qué estudias?
+    - Que estudias?
+    - En que carrera estas?
+    - Que carrera estas estudiando? 
+    - Que estas estudiando?
+
+- intent: saber_año_de_carrera
+  examples: |
+    - ¿En qué año estas?
+    - En que año de la carrera estas?
+    - Que año estas cursando?
+    - Que año de la carrera estas cursando?
+    - Que año de carrera estas?
+  
+- intent: materias_de_interes
+  examples:  |
+    - ¿Qué materias te gustan?
+    - Que materias te gustan?
+    - Que materias te interesan?
+    - Cuales son tus materias favoritas?
+    - Que materias te gustan mas?
+
+- intent: programas_en
+  examples:  |
+    - Sabes programar en [Python](lenguaje)?
+    - Sabes programar en [Java](lenguaje)?
+    - Sabes programar en [C#](lenguaje)?
+    - Sabes programar en [JavaScript](lenguaje)?
+    - Programas en [TypeScript](lenguaje)?
+    - Programas en [PHP](lenguaje)?
+
+- intent: lenguajes_de_programacion
+  examples:  |
+    - ¿Qué lenguajes de programación conoces?
+    - Que lenguajes de programacion conoces?
+    - Que lenguajes de programacion sabes?
+    - Que lenguajes de programacion manejas?
+    - Que lenguajes de programacion programas?
+    - Cuales son tus lenguajes de programacion favoritos?
+    - En cuales lenguajes de programacion estas capacitado?
+    - Cuales lenguajes de programacion manejas mas?
+
+- intent: interes
+  examples: |
+    - ¿Qué te gusta hacer?
+    - Cuales son tus hobbies?
+    - Que haces en tus tiempos libres?
+    - Que te gusta hacer en tu tiempo libre?
+
+- intent: proyectos
+  examples: |
+    - ¿Qué proyectos tenes?
+    - Que proyectos tenes?
+    - Que proyectos estas haciendo?
+    - Que proyectos estas desarrollando?
+    - Que proyectos estas realizando?
+    - Que proyectos estas trabajando?
+    - En que te encontras trabajando?
+
+- intent: estado_del_proyecto
+  examples: |
+    - Y como viene el proyecto por ahora
+    - Como va el proyecto?
+    - Como va el proyecto por ahora?
+    - En que etapa esta el proyecto
+    - En que etapa esta el proyecto por ahora?
+    - Y como viene por ahora?
+
+- intent: como_estas
+  examples: |
+    - ¿Cómo estás?
+    - Como andas?
+    - Como te sentis?
+    - Como estas?
+    - Como estas hoy?
+    - Como te encontras?
+
+- intent: que_hacias
+  examples: |
+    - ¿Qué hacias?
+    - Que estabas haciendo?
+    - Que te encontrabas haciendo?
+    - Que estabas haciendo antes?
+    - Que estabas haciendo antes de hablar conmigo?
+
+- intent: decir_nombre
+  examples: |
+    - Me llamo [Nacho](nombre)
+    - Mi nombre es [Analia](nombre)
+    - Me dicen [Matias](nombre)
+    - Me llamo [Agustin] (nombre)
+    - Soy [Nelson](nombre)
+    - [Juan](nombre)
+
+- regex: nombre
+  examples: |
+    - \b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+
+
+- intent: grupo_con 
+  examples: |
+    - Te gustaria ir al grupo con [Martin Vazques Arispe](nombre_grupo)?
+    - Te gustaria hacer grupo con [Analia Amandi](nombre_grupo)?
+    - Te gustaria hacer grupo con [Matias Berthelot](nombre_grupo)?
+    - Queres hacer grupo con [Agustin Zucchi](nombre_grupo)?
+    - Te molesta si te pongo en el grupo con [Nelson Acosta](nombre_grupo)?
+    - Te interesa hacer grupo con [Martin Caballero](nombre_grupo)?
+    - Queres estar en el grupo con [David Burckhardt](nombre_grupo)?
+
+- regex: nombre_grupo
+  examples: |
+    - \b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+
+
+- intent: grupo_interes
+  examples: |
+    - Con quien te gustaria hacer grupo?
+    - Con quien de tus compañeros te gustaria estar en grupo?
+    - Con quien quieres estar en grupo?
+    - Quienes te gustaria que esten en tu grupo?
+    - Tenes alguien en mente para trabajar en grupo?
+    - Con que personas te gustaria hacer grupo?
+    - Con quienes te gustaria que te ponga en grupo
+
+- intent: materias_cursadas
+  examples: |
+    - ¿Qué materias cursaste?
+    - Que materias tenes cursadas?
+    - Que materias tenes aprobadas?
+    - Cuales materias cursaste hasta ahora?
+    - Cuales materias cursaste?
+
+
+- intent: materias_cursa
+  examples: |
+    - Que materias estas cursando?
+    - Cuales materias estas haciendo este cuatrimestre?
+    - Que materias estas haciendo este cuatrimestre?
+    - Que estas cursando este cuatrimestre?
+    - Que estas cursando ahora?
+
+- intent: materias_cursa_dia
+  examples: |
+    - Que materias tenes el [lunes](dia)?
+    - Que materias tenes el [martes](dia)?
+    - Que materias tenes el [miercoles](dia)?
+    - Cuales materias cursas los [lunes](dia)?
+    - Cuales materias cursas los [jueves](dia)?
+    - Que cursas los [viernes](dia)?
+    - El [sabado](dia) que materias tenes?
+    - El [domingo](dia) que materias tenes?
+    - Que tenes los [martes](dia)?
+
+- intent: horarios_materia
+  examples: |
+    - Cuales son tus horarios de [Programacion Exploratoria](materia)?
+    - A que gora cursas [Programacion Exploratoria](materia)?	
+    - Que dias cursas [Lenguajes de Programacion I](materia)?
+    - En que dias cursas [Lenguajes de Programacion I](materia)?
+    - Que dias tenes [Lenguajes de Programacion I](materia)?
+    - Cuando cursas [Probabilidad y Estadistica](materia)?
+    - En que dias y horarios cursas [Probabilidad y Estadistica](materia)?
+
+
+- intent: finales_pendientes
+  examples:  |
+    - Que materias tenes finales pendientes?
+    - De que materias tenes finales pendientes?
+    - Cuales finales te quedan?
+    - Que materias te quedan para rendir final?
+    - Cuales materias te quedan por rendir final?
+
+- intent: areas_de_interes
+  examples: |
+    - Que areas te interesan?
+    - Que sector del software te gusta mas?
+    - Cuales son tus areas de interes?
+    - Que areas te gustan mas?
+    - Cuales son las areas que mas te interesan?
+
+- intent: areas_de_no_interes
+  examples: |
+    - Que areas no te interesan?
+    - Que areas no te gustan?
+    - Que areas del software no te atraen?
+    - Que areas no te llaman la atencion?
+    - Cuales areas son las que menos te interesan?
+
+- intent: porque_carrera
+  examples: |
+    - Por que decidiste estudiar esta carrera?
+    - Por que elegiste esta carrera?
+    - Que te hizo elegir esta carrera?
+    - Por que elegiste estudiar Ingenieria en Sistemas?
+    - Que te hizo decidirte por esta carrera?
+
+- intent: opinion_ai
+  examples: |
+    - Que te parece el machine learning?
+    - Que te parece el tema de la inteligencia artificial?
+    - Que te parece el tema de la IA?
+    - Como ves el futuro de la IA?
+    - Que opinion le guardas al ML?
+    - Que opinas de la inteligencia artificial?
+    - Que opinas del machine learning?
+
+- intent: opinion_medicos_ai
+  examples: |
+    - Crees que los medicos van a ser reemplazados por IA?
+    - Que te parece el tema de los medicos reemplazados por IA?
+    - Para vos un medico reemplazado por IA es una buena idea?
+    - Para vos una inteligencia artificial podria reemplazar a un medico?
+    - Que opinas respecto a reemplazar medicos por Inteligencia Artificial?
+  

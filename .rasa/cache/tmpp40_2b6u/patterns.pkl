@@ -1,0 +1,10 @@
+[
+  {
+    "name": "nombre",
+    "pattern": "\\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+"
+  },
+  {
+    "name": "nombre_grupo",
+    "pattern": "\\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+"
+  }
+]

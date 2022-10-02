@@ -1,0 +1,175 @@
+version: "3.1"
+
+intents:
+  - greet #
+  - goodbye #
+  - affirm
+  - deny
+  - mood_great # 
+  - mood_unhappy # 
+  - bot_challenge #
+  - saber_edad # 
+  - saber_nombre # 
+  - saber_ciudad_de_origen # 
+  - saber_carrera # 
+  - saber_año_de_carrera # 
+  - materias_de_interes
+  - programas_en
+  - lenguajes_de_programacion
+  - interes # 
+  - proyectos #
+  - estado_del_proyecto # 
+  - como_estas # 
+  - que_hacias # 
+  - decir_nombre 
+  - grupo_con
+  - grupo_interes
+  - materias_cursadas
+  - materias_cursa # 
+  - materias_cursa_dia
+  - horarios_materia
+  - finales_pendientes
+  - areas_de_interes # 
+  - areas_de_no_interes # 
+  - porque_carrera # 
+  - opinion_ai #
+  - opinion_medicos_ai #
+
+entities: 
+  - nombre
+  - lenguaje
+  - nombre_grupo
+  - dia
+  - materia
+
+slots:
+  nombre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre
+  lenguaje:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: lenguaje
+  nombre_grupo:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre_grupo
+  dia:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: dia
+  materia:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: materia
+
+    
+
+responses:
+  utter_please_rephrase:
+  - text: "Lo siento, no entiendo de que me estas hablando"
+    custom:
+      sticker: "image.png"
+
+  utter_greet:
+  - condition: 
+    - type: slot
+      name: nombre
+      value: null
+    text: "Hola! Perdon pero perdi los contactos ¿Cómo te llamas?"
+  - text: "Hola {nombre}!"
+
+  utter_happy:
+  - text: "Que bueno! Me alegro :) Yo estoy bien tambien🙌"
+
+  utter_unhappy:
+  - custom:
+      sticker: "https://tlgrm.es/_/stickers/eb5/41e/eb541eba-3be4-3bea-bd7f-5e487503be39/192/9.webp"
+      text: "Uh que triste, espero que te sientas mejor pronto. "
+
+  utter_goodbye:
+  - condition: 
+    - type: slot
+      name: nombre
+      value: null
+    text: "Adios! Espero verte pronto"
+  - text: "Chau {nombre}! Espero verte pronto"
+  - text: "Hasta luego {nombre}!!!"
+  - text: "Nos vemos {nombre}, que andes bien🙌"
+
+  utter_carrera:
+    - text: "Estudio Ingeniería en Sistemas"
+
+  utter_porque_carrera:
+    - text: "Desde chico me gustaba mucho la computación y la programacion, en 2012 conoci a un exalumno de esta facultad,German Attanasio, quien me conto sobre la carrera y la universidad y me inspiro a estudiar esto"
+
+  utter_año_de_carrera:
+    - text: "Estoy en 3er año"
+  
+  utter_interes:
+    - text: "Me gusta mucho programar y hacer musica en mis tiempos libres"
+
+  utter_materias_de_interes:
+    - text: "Las materias que mas me llaman la atencion son las relacionadas a la Inteligencia Artificial y las metodologias de desarrollo"
+
+  utter_areas_de_interes:
+    - text: "Me interesa mucho el campo de la IA y tambien me atrae el desarrollo de software en general👨‍💻​"
+
+  utter_areas_de_no_interes:
+    - text: "No me interesa mucho el desarrollo de hardware"
+
+  utter_como_estas:
+    - text: "Muy bien, gracias por preguntar"
+    - text: "Yo estoy fantastico!"
+    - text: "Increible, gracias por preguntar😄​"
+
+  utter_como_estas_nombre:
+    - text: "Ahh si!!! Como estas {nombre}?"
+    - text: "Hola {nombre}, como estas?"
+  
+  utter_edad:
+    - text: "Tengo 20 años"
+
+  utter_nombre:
+    - text: "Soy Nacho..."
+
+  utter_ciudad_de_origen:
+    - text: "Soy de Mar del Plata🏖️​"
+
+  utter_proyectos:
+    - text: "Estoy trabajando en un traductor en tiempo real de lengua de señas✋​..."
+
+  utter_estado_del_proyecto:
+    - text: "Estoy en la etapa de desarrollo pero creo que viene muy bien :)"
+
+  utter_opinion_ai:
+    - text: "A mi la IA me apasiona, me parece una tecnologia muy interesante con un potencial enorme🚀 y aplicable en muchisimos campos​"
+
+  utter_opinion_medicos_ai:
+    - text: "Me parece una tecnologia muy interesante, pero de momento no me gusta la idea de que se la pueda utilizar para diagnosticar enfermedades, ya que no es 100% confiable. Tal vez mas adelante cuando la tecnologia este mas avanzada y se pueda confiar en ella te podria decir que si"
+
+
+actions:
+  - action_que_hacias
+  - action_saludo
+  - action_guardar_contacto
+  - action_lenguajes
+  - action_todos_lenguajes
+  - action_integrantes
+  - action_grupo_interes
+  - action_materias_cursadas
+  - action_materias_cursa
+  - action_finales_pendientes
+  - action_materias_cursa_dia
+  - action_horarios_materias
+  - action_not_bot
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

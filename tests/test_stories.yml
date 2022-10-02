@@ -1,0 +1,203 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+
+- story: Carrera y porque la eligio
+  steps:
+  - user: |
+      Que carrera estas estudiando?
+    intent: saber_carrera
+  - action: utter_carrera
+  - user: |
+      Porque elegiste esa carrera?
+    intent: porque_carrera
+  - action: utter_porque_carrera
+
+- story: Saber año de carrera
+  steps:
+  - user: |
+      ¿En qué año estas?
+    intent: saber_año_de_carrera
+  - action: utter_año_de_carrera
+
+
+- story: Conocer los intereses de la persona
+  steps:
+  - user: |
+      ¿Qué te gusta hacer?
+    intent: interes
+  - action: utter_interes
+  - user: |
+      ¿Qué materias te gustan?
+    intent: materias_de_interes
+  - action: utter_materias_de_interes
+  - user: |
+      Que areas te interesan?
+    intent: areas_de_interes
+  - action: utter_areas_de_interes
+  - user: |
+      Que areas no te interesan?
+    intent: areas_de_no_interes
+  - action: utter_areas_de_no_interes
+  
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar (path contacto ya registrado)
+  - user: |
+      Hola
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Me llamo [Nacho](nombre)
+    intent: decir_nombre
+  - action: utter_como_estas_nombre
+  - user: |
+      Muy bien!
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      Que hacias?
+    intent: que_hacias
+  - action: action_que_hacias
+
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar
+  steps:
+  - user: |
+      Hola
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Me llamo [Nacho](nombre)
+    intent: decir_nombre
+  - action: utter_como_estas_nombre
+  - user: |
+      Muy bien!
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      Que hacias?
+    intent: que_hacias
+  - action: action_que_hacias
+
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar (path triste)
+  steps:
+  - user: |
+      Hola
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Me llamo [Nacho](nombre)
+    intent: decir_nombre
+  - action: utter_como_estas_nombre
+  - user: |
+      Mal
+    intent: mood_unhappy
+  - action: utter_unhappy
+  - user: |
+      Que hacias?
+    intent: que_hacias
+  - action: action_que_hacias
+  
+- story: Conocer los proyectos que ha realizado
+  steps:
+  - user: |
+      ¿Qué proyectos has realizado?
+    intent: proyectos
+  - action: utter_proyectos
+  - user: |
+      Y como viene el proyecto por ahora?
+    intent: estado_del_proyecto
+  - action: utter_estado_del_proyecto
+
+- story: Conocer puntos de vista respecto al software
+  steps:
+  - user: |
+      Que te parece el machine learning?
+    intent: opinion_ai
+  - action: utter_opinion_ai
+  - user: |
+      Crees que los medicos van a ser reemplazados por IA?
+    intent: opinion_medicos_ai
+  - action: utter_opinion_medicos_ai
+
+- story: Conocer si sabe programan en algun lenguaje
+  steps:
+  - user: |
+      Sabes programar en [Python](lenguaje)?
+    intent: programas_en
+    entities:
+    - lenguaje
+  - slot_was_set:
+    - lenguaje
+  - action: action_lenguajes
+
+- story: Conocer los lenguajes de programacion que sabe
+  steps:
+  - user: |
+      ¿Qué lenguajes de programación conoces?
+    intent: lenguajes_de_programacion
+  - action: action_todos_lenguajes
+
+- story: Preguntar si le gustaria trabajar en un grupo con alguien
+  steps:
+  - user: |
+      Te gustaria ir al grupo con [Martin Vazques Arispe](nombre_grupo)?
+    intent: grupo_con
+    entities:
+      - nombre_grupo
+  - slot_was_set:
+      - nombre_grupo
+  - action: action_integrantes
+
+- story: Preguntar con quien le gustaria trabajar
+  steps:
+  - user: |
+      Con quien te gustaria hacer grupo?
+    intent: grupo_interes
+  - action: action_grupo_interes
+
+- story: Conocer que materias curso en el pasado
+  steps:
+  - user: |
+      ¿Qué materias cursaste?
+    intent: materias_cursadas
+  - action: action_materias_cursadas
+
+- story: Saber que materias esta cursando actualmente
+  steps:
+  - user: |
+      ¿Qué materias estas cursando?
+    intent: materias_cursa
+  - action: action_materias_cursa
+
+- story: Conocer que materias les queda por rendir final
+  steps:
+  - user: |
+      Que materias tenes finales pendientes?
+    intent: finales_pendientes
+  - action: action_finales_pendientes
+
+- story: Saber que materias cursa un dia
+  steps:
+  - user: |
+      Que materias tenes el [lunes](dia)?
+    intent: materias_cursa_dia
+    entities: 
+      - dia
+  - slot_was_set:
+      - dia
+  - action: action_materias_cursa_dia
+
+- story: Conocer horario de una materia
+  steps:
+  - user: |
+      Cuales son tus horarios de [Programacion Exploratoria](materia)?
+    intent: horarios_materia
+    entities:
+      - materia
+  - slot_was_set:
+      - materia
+  - action: action_horarios_materias
+

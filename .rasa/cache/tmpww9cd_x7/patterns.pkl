@@ -1,0 +1,10 @@
+[
+  {
+    "name": "nombre",
+    "pattern": "[A-Za-z]+((\\s)?([A-Za-z])+)*"
+  },
+  {
+    "name": "nombre_grupo",
+    "pattern": "[A-Za-z]+((\\s)?([A-Za-z])+)*"
+  }
+]

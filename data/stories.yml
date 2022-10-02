@@ -1,0 +1,179 @@
+version: "3.1"
+
+stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+- story: Carrera y porque la eligio
+  steps:
+  - intent: saber_carrera
+  - action: utter_carrera
+  - intent: porque_carrera
+  - action: utter_porque_carrera
+
+- story: Saber año de carrera
+  steps:
+  - intent: saber_año_de_carrera
+  - action: utter_año_de_carrera
+
+
+- story: Conocer los intereses de la persona
+  steps:
+  - intent: interes
+  - action: utter_interes
+  - intent: materias_de_interes
+  - action: utter_materias_de_interes
+  - intent: areas_de_interes
+  - action: utter_areas_de_interes
+  - intent: areas_de_no_interes
+  - action: utter_areas_de_no_interes
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar (path contacto ya registrado)
+  steps:
+  - intent: greet
+  - action: action_saludo
+  - slot_was_set:
+    - nombre
+  - intent: mood_great
+  - action: utter_happy
+  - intent: que_hacias
+  - action: action_que_hacias
+
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar (path contacto ya registrado y triste)
+  steps:
+  - intent: greet
+  - action: action_saludo
+  - slot_was_set:
+    - nombre
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: que_hacias
+  - action: action_que_hacias
+
+
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar
+  steps:
+  - intent: greet
+  - action: action_saludo
+  - intent: decir_nombre
+  - action: action_guardar_contacto
+  - intent: mood_great
+  - action: utter_happy
+  - intent: que_hacias
+  - action: action_que_hacias
+
+
+- story: Saludar saber como esta y que estaba haciendo antes de hablar (path triste)
+  steps:
+  - intent: greet
+  - action: action_saludo
+  - intent: decir_nombre
+  - action: action_guardar_contacto
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: que_hacias
+  - action: action_que_hacias
+
+  
+- story: Conocer los proyectos que ha realizado
+  steps:
+  - intent: proyectos
+  - action: utter_proyectos
+  - intent: estado_del_proyecto
+  - action: utter_estado_del_proyecto
+
+- story: Conocer puntos de vista respecto al software
+  steps:
+  - intent: opinion_ai
+  - action: utter_opinion_ai
+  - intent: opinion_medicos_ai
+  - action: utter_opinion_medicos_ai
+
+- story: Conocer si sabe programan en algun lenguaje
+  steps:
+  - intent: programas_en
+    entities:
+    - lenguaje
+  - slot_was_set:
+    - lenguaje
+  - action: action_lenguajes
+
+- story: Conocer los lenguajes de programacion que sabe
+  steps:
+  - intent: lenguajes_de_programacion
+  - action: action_todos_lenguajes
+
+- story: Preguntar si le gustaria trabajar en un grupo con alguien
+  steps:
+  - intent: grupo_con
+    entities:
+      - nombre_grupo
+  - slot_was_set:
+      - nombre_grupo
+  - action: action_integrantes
+
+- story: Preguntar con quien le gustaria trabajar
+  steps:
+  - intent: grupo_interes
+  - action: action_grupo_interes
+
+- story: Conocer que materias curso en el pasado
+  steps:
+  - intent: materias_cursadas
+  - action: action_materias_cursadas
+
+- story: Saber que materias esta cursando actualmente
+  steps:
+  - intent: materias_cursa
+  - action: action_materias_cursa
+
+- story: Conocer que materias les queda por rendir final
+  steps:
+  - intent: finales_pendientes
+  - action: action_finales_pendientes
+
+- story: Saber que materias cursa un dia
+  steps:
+  - intent: materias_cursa_dia
+    entities: 
+      - dia
+  - slot_was_set:
+      - dia
+  - action: action_materias_cursa_dia
+
+- story: Conocer horario de una materia
+  steps:
+  - intent: horarios_materia
+    entities:
+      - materia
+  - slot_was_set:
+      - materia
+  - action: action_horarios_materias
+

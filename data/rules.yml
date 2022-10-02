@@ -1,0 +1,43 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: action_saludo
+
+- rule: Demostrar que no es un bot
+  steps:
+  - intent: bot_challenge
+  - action: action_not_bot
+
+- rule: Decir edad
+  steps:
+  - intent: saber_edad
+  - action: utter_edad
+
+- rule: Decir nombre
+  steps:
+  - intent: saber_nombre
+  - action: utter_nombre
+
+- rule: Decir lugar de origen
+  steps:
+  - intent: saber_ciudad_de_origen
+  - action: utter_ciudad_de_origen
+
+- rule: Como estas
+  steps:
+  - intent: como_estas
+  - action: utter_como_estas
+
+# - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+#   steps:
+#   - intent: nlu_fallback
+#   - action: utter_please_rephrase

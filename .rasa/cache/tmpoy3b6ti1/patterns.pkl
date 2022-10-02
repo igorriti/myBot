@@ -1,0 +1,10 @@
+[
+  {
+    "name": "name",
+    "pattern": "^[a-zA-Z]+(([’,. -][a-zA-Z ])?[a-zA-Z]*)$"
+  },
+  {
+    "name": "tipo_cuenta",
+    "pattern": "((([aA-zZ]\\w+ *){1,})+(, )*){1,}"
+  }
+]
