@@ -35,14 +35,14 @@ class OperarArchivo():
 
     @staticmethod
     def guardar(AGuardar):
-        with open(".\\actions\\datos","w") as archivo_descarga:
+        with open(".\\actions\\contactos","w") as archivo_descarga:
             json.dump(AGuardar, archivo_descarga, indent=4)
         archivo_descarga.close()
 
     @staticmethod
     def cargarArchivo(): 
-        if os.path.isfile(".\\actions\\datos"):
-            with open(".\\actions\\datos","r") as archivo_carga:
+        if os.path.isfile(".\\actions\\contactos"):
+            with open(".\\actions\\contactos","r") as archivo_carga:
                 retorno=json.load(archivo_carga)
                 archivo_carga.close()
         else:
@@ -89,19 +89,23 @@ class ActionGreet(Action):
         # Si esta agendado, le saludo por su nombre
         
         # Obtengo los metadatos del mensaje
-        sender = tracker.latest_message["metadata"]["message"]["from"]
+        sender = tracker.latest_message["metadata"]["message"]["from"]["id"]
         contactos = OperarArchivo.cargarArchivo()
-        if sender["id"] in contactos:
+        print(sender)
+        print(contactos)
+        # if the id of sender is in the contactos.json
+        
+        if str(sender) in contactos:
             # Mando mensaje y seteo el slot con el nombre del contacto
             random = randint(0, 2)
             if random == 0:
-                msg = f"Hola {contactos[sender['id']]['nombre']}! Como va todo?"
+                msg = f"Hola {contactos[str(sender)]['nombre']}! Como va todo?"
             elif random == 1:
-                msg = f"Como vaa {contactos[sender['id']]['nombre']}"
+                msg = f"Como vaa {contactos[str(sender)]['nombre']}"
             elif random == 2:
-                msg = f"Que onda {contactos[sender['id']]['nombre']}, como estas?"
+                msg = f"Que onda {contactos[str(sender)]['nombre']}, como estas?"
             dispatcher.utter_message(text=msg)
-            return [SlotSet("nombre",contactos[id]['nombre'])]
+            return [SlotSet("nombre",contactos[str(sender)]['nombre'])]
         else:
             dispatcher.utter_message(text="Hola! No te tengo agendado, quien sos?")
         return []
@@ -121,7 +125,8 @@ class ActionGuardarContacto(Action):
         contactos[sender["id"]] = {}
         contactos[sender["id"]]["nombre"] = nombre
         OperarArchivo.guardar(contactos)
-        dispatcher.utter_message(text=f"Ahh si!!! Como estas {nombre}?")
+        dispatcher.utter_message(text=f"Ahh!!! Como estas {nombre}?")
+        dispatcher.utter_message(text="Ya te agendo!")
         return []
     
 class ActionNotBot(Action):
@@ -134,7 +139,7 @@ class ActionNotBot(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         random = randint(0, 2)
-        msg = f"https://github.com/igorriti/myBot/raw/main/audios/{random}.ogg"        
+        msg = f"https://github.com/igorriti/myBot/raw/master/audios/{random}.ogg"        
         dispatcher.utter_message(json_message={"voice": msg})
         return []      
 
@@ -174,7 +179,7 @@ class ActionIntegrantes(Action):
         #Consulta en el archivo de prolog si el integrante que le pasaron por la entidad es true o no
         integrante = tracker.get_slot("nombre_grupo")
         integrante = integrante.title()
-
+        print(integrante)
         consulta = ConsultarProlog.consultar(f'es_amigo("{integrante}").')
         
         if consulta:
@@ -194,7 +199,6 @@ class ActionGrupoInteres(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        grupo = tracker.get_slot("grupo")
         consulta = ConsultarProlog.consultar(f"grupo_de_amigos(X).")
         mes = "Me gustaria hacer grupo con "
         
@@ -314,7 +318,7 @@ class ActionMateriasCursaDia(Action):
         
         
         if consulta[0]['X'] != []:
-            mes = f"El {dia} curso: "
+            mes = f"El {dia} curso "
             
             for a in consulta[0]['X']:
                 if len(consulta[0]['X'])>=2 and a == consulta[0]['X'][-2]:

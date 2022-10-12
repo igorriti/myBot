@@ -133,9 +133,9 @@ final_aprobado(6313).
 final_aprobado(6314).
 
 % Materias que curso, dias y horarios
-cursada(6223, [lunes, viernes], 8, 11).
-cursada(6321, miercoles, 13, 14).
-cursada(6323, [martes, jueves], 13, 16).
+cursada(6223, [lunes, viernes], "8:00", "11:00").
+cursada(6321, miercoles, "13:30", "16:30").
+cursada(6323, [martes, jueves], "13:00", "16:00").
 
 
 

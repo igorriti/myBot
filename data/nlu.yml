@@ -43,14 +43,16 @@ nlu:
 
 - intent: mood_great
   examples: |
+    - bien
     - perfecto
     - increible
     - genial
     - maravilloso
-    - me siento muy bien
-    - me siento 10 puntos
+    - me siento muy bien, vos como estas?
+    - me siento 10 puntos, y vos?
     - muy contento
     - muy bien
+    - bien y vos?
     - bien, gracias por preguntar
 
 - intent: mood_unhappy
@@ -79,6 +81,7 @@ nlu:
     - Cuantos años tenes?
     - Cual es tu edad?
     - Que edad tenes?
+    - Cual es tu edad?
 
 - intent: saber_nombre
   examples: |
@@ -86,6 +89,7 @@ nlu:
     - Como te llamas?
     - Cual es tu nombre?
     - Que nombre tenes?
+    - Quien sos?
 
 - intent: saber_ciudad_de_origen
   examples: |
@@ -93,6 +97,7 @@ nlu:
     - De donde eres?
     - Cual es tu ciudad de origen?
     - De donde sos?
+    - De que ciudad sos?
 
 - intent: saber_carrera
   examples: |
@@ -126,6 +131,16 @@ nlu:
     - Sabes programar en [JavaScript](lenguaje)?
     - Programas en [TypeScript](lenguaje)?
     - Programas en [PHP](lenguaje)?
+    - Programas en [C](lenguaje)?
+    - Programas en [Ruby](lenguaje)?
+    - Sabes programar en [Go](lenguaje)?
+    - Tenes conocimientos en [Perl](lenguaje)?
+    - Tenes conocimientos en [Rust](lenguaje)?
+    - Sabes [Cobol](lenguaje)?
+    - Conoces [Pasca](lenguaje)?
+    - Conoces [Swift](lenguaje)?
+    - Sabes usar [Kotlin](lenguaje)?
+
 
 - intent: lenguajes_de_programacion
   examples:  |
@@ -192,7 +207,8 @@ nlu:
 
 - regex: nombre
   examples: |
-    - \b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+
+    - [A-Z][a-z]*
+  
 
 - intent: grupo_con 
   examples: |
@@ -203,6 +219,8 @@ nlu:
     - Te molesta si te pongo en el grupo con [Nelson Acosta](nombre_grupo)?
     - Te interesa hacer grupo con [Martin Caballero](nombre_grupo)?
     - Queres estar en el grupo con [David Burckhardt](nombre_grupo)?
+    - Te gustaria hacer grupo con [Juan Pablo](nombre_grupo)?
+    - Queres hacer grupo con [Pedro Martinez](nombre_grupo)?
 
 - regex: nombre_grupo
   examples: |
@@ -250,7 +268,7 @@ nlu:
 - intent: horarios_materia
   examples: |
     - Cuales son tus horarios de [Programacion Exploratoria](materia)?
-    - A que gora cursas [Programacion Exploratoria](materia)?	
+    - A que hora cursas [Programacion Exploratoria](materia)?	
     - Que dias cursas [Lenguajes de Programacion I](materia)?
     - En que dias cursas [Lenguajes de Programacion I](materia)?
     - Que dias tenes [Lenguajes de Programacion I](materia)?

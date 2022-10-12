@@ -39,7 +39,7 @@ def get_video_info(api, video_id):
 
 def get_random_video():
 
-    yt_api = Api(api_key="HERE IT GOES YOUR YOUTUBE API KEY")
+
     video_id = get_random_id(yt_api, "PL-Ogd76BhmcDxef4liOGXGXLL-4h65bs4")
     info = get_video_info(yt_api, video_id)
     
